@@ -1,0 +1,4 @@
+experiment,n_train_shots,n_train_positive_shots,n_train_positive_rows,n_test_shots,n_test_positive_shots,n_test_positive_rows,sensor_cols,domain_cols,best_epoch,best_auc_pr,best_f1
+experiment_1_baseline,1862,58,961,466,15,284,density;elongation;minor_radius;plasma_current;toroidal_B_field;triangularity,none,28,0.17008754761463998,0.21400778210067284
+experiment_2_raw_features,770,23,460,788,50,785,density;elongation;minor_radius;plasma_current;toroidal_B_field;triangularity,none,3,0.022376750033223803,0.06625409537636645
+experiment_3_physics_features,770,23,460,788,50,785,elongation;toroidal_B_field;triangularity,f_G,18,0.0510856182134794,0.1144336569577462

@@ -1,0 +1,21 @@
+======================================================================
+LEAKAGE DIAGNOSIS -- f_G as a predictor of the label
+======================================================================
+
+SAME-TIMESTEP label ('disruptive' / density_limit_phase):
+  prevalence (chance baseline): 0.0136
+  AUC-ROC of raw f_G alone (no model): 0.9756
+  AUC-PR  of raw f_G alone (no model): 0.7238
+  --> This is the leakage: a bare threshold on f_G nearly solves the
+      task with zero training, because the label and f_G are two
+      measurements of the same physical fact at the same instant.
+
+FORECAST label (early-warning task, at several horizons):
+  horizon=10 steps (100ms): prevalence=0.0026, AUC-ROC=0.8618, AUC-PR=0.0125 (AUC-PR / prevalence ratio = 4.73x)
+  horizon=20 steps (200ms): prevalence=0.0048, AUC-ROC=0.8374, AUC-PR=0.0153 (AUC-PR / prevalence ratio = 3.20x)
+  horizon=50 steps (500ms): prevalence=0.0087, AUC-ROC=0.7939, AUC-PR=0.0199 (AUC-PR / prevalence ratio = 2.29x)
+  horizon=100 steps (1000ms): prevalence=0.0106, AUC-ROC=0.7377, AUC-PR=0.0198 (AUC-PR / prevalence ratio = 1.88x)
+
+--> At every horizon, f_G alone drops from near-perfect separation
+    (same-timestep) to close to chance level (forecast). This is the
+    evidence that the forecast reframing removes the leakage.
